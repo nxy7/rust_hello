@@ -42,4 +42,10 @@ fn main() {
         }
     };
     println!("User has {}$", user.funds);
+    // during prototyping it's pretty common to use unwrap() which is
+    // unsafe and will panic on None or Err() values
+    let unsafe_user = get_user_from_db(&user_id);
+    let unsafe_user = unsafe_user.unwrap();
+    let unsafe_user = unsafe_user.unwrap();
+    println!("User has {}$", unsafe_user.funds);
 }
